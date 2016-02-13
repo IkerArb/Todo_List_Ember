@@ -6,4 +6,22 @@ Todos.Todo = DS.Model.extend({
 });
 
 /* Ember data es agnóstico a la base de datos*/
-/* Adapters */
+
+// ... additional lines truncated for brevity ...
+Todos.Todo.FIXTURES = [
+ {
+   id: 1,
+   title: 'Learn Ember.js',
+   isCompleted: true
+ },
+ {
+   id: 2,
+   title: '...',
+   isCompleted: false
+ },
+ {
+   id: 3,
+   title: 'Profit!',
+   isCompleted: false
+ }
+];
