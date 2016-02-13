@@ -20,17 +20,22 @@
       <section id="todoapp">
         <header id="header">
           <h1>todos</h1>
-          <input type="text" id="new-todo" placeholder="What needs to be done?" />
+          {{input
+            type="text"
+            id="new-todo"
+            placeholder="What needs to be done?"
+            value=newTitle
+            action="createTodo"}}
         </header>
 
         <section id="main">
           <ul id="todo-list">
-            {{#each todo in model}}
-              <li>
-                <input type="checkbox" class="toggle">
-                <label>{{todo.title}}</label><button class="destroy"></button>
-              </li>
-            {{/each}}
+            {{#each todo in model itemController="todo"}}
+            <li {{bind-attr class="todo.isCompleted:completed"}}>
+              {{input type="checkbox" checked=todo.isCompleted class="toggle"}}
+              <label>{{todo.newTitle}}</label><button class="destroy"></button>
+            </li>
+          {{/each}}
           </ul>
 
           <input type="checkbox" id="toggle-all">
@@ -76,5 +81,7 @@
     <script src="js/router.js"></script>
     <script src="js/models/todo.js"></script>
     <script src="js/routes/todos_route.js"></script>
+    <script src="js/controllers/todos_controller.js"></script>
+    <script src="js/controllers/todo_controller.js"></script>
   </body>
 </html>
